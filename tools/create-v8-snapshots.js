@@ -50,6 +50,9 @@ async function generate(elestron_dir, asar_hash) {
     const mksnapshot = path.resolve(__dirname, '..', 'node_modules', '.bin', 'mksnapshot' + (process.platform === 'win32' ? '.cmd' : ''));
 
     try {
+        // 如果cache目录不存在则创建
+        await fs.mkdir(outdir);
+
         let snapshot_code = await fs.readFile(snapshot_filename, 'utf8');
 
         // 替换asar_hash到snapshot.js
@@ -90,6 +93,7 @@ async function generate(elestron_dir, asar_hash) {
             throw new Error(`mksnapshot failed: ${stdout}`);
         }
     } catch (error) {
+        console.error(error);
         throw error;
     }
 }

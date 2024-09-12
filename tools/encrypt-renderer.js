@@ -3,7 +3,6 @@ const crypto = require('crypto');
 const fs = require('fs/promises');
 const path = require('path');
 const stream = require('stream');
-
 const { generate } = require('./create-v8-snapshots.js');
 
 /**
@@ -106,6 +105,7 @@ exports.default = async (context) => {
         const duration = (end_time - start_time) / 1000;
         console.log(`\x1B[31m  • \x1B[33mencrypt\x1B[0m         \x1B[34mduration\x1B[0m:${duration}s \x1B[34mhash\x1B[0m:${asar_hash.toString('hex')}\x1B[0m`);
     } catch (e) {
+        console.error(e);
         throw e;
     }
 };
