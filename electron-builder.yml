@@ -4,11 +4,9 @@ directories:
   buildResources: build
   output: dist_electron/${version}
 files:
-  - "!**/.vscode/*"
-  - "!src/*"
-  - "!electron.vite.config.{js,ts,mjs,cjs}"
-  - "!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}"
-  - "!{.env,.env.*,.npmrc,pnpm-lock.yaml}"
+  - "dist"
+  - "resources"
+  - "!node_modules/**/{*.md,*.map,*.scss,*.gyp,README,readme,LICENSE,LICENSE.txt,license}"
 asarUnpack:
   - resources/**
 win:
