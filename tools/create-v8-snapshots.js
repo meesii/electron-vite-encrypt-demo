@@ -51,7 +51,9 @@ async function generate(elestron_dir, asar_hash) {
 
     try {
         // 如果cache目录不存在则创建
-        await fs.mkdir(outdir);
+        if ((await check_file_exists(outdir)) === false) {
+            await fs.mkdir(outdir);
+        }
 
         let snapshot_code = await fs.readFile(snapshot_filename, 'utf8');
 
