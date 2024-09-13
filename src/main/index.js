@@ -37,6 +37,8 @@ function createWindow() {
     } else {
         // 渲染层替换为自定义协议，并且使用loadURL
         mainWindow.loadURL(`dtools://www.dtools.com/`);
+
+        mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
     }
 }
 

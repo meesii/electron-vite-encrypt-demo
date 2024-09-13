@@ -30,3 +30,8 @@ package.json - 入口文件路径
 
 demo中只使用了aes-gcm一层加密，比较容易被人猜中（因为密钥是有可能可以通过hook获取到的）  
 建议再增加一层加密，比如异或算法
+
+### 已知问题
+
+版本最高只支持到electron v26.6.10，可能是electron-mksnapshot在v27版本开始和bytenode有冲突，具体原因未知  
+MacOS需要自行修改对应的路径，还有v8_context_snapshot.bin的名称之类的
